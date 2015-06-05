@@ -13,6 +13,7 @@
     CCNode *_ground1;
     CCNode *_ground2;
     NSArray *_grounds;
+    int collisions;
     
     NSTimeInterval _sinceTouch;
     
@@ -45,6 +46,8 @@
     _obstacles = [NSMutableArray array];
     points = 0;
     _scoreLabel.visible = true;
+    
+    collisions = 0;
     
     [super initialize];
 }
@@ -178,7 +181,10 @@
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair*)pair character:(CCSprite*)character level:(CCNode*)level {
-    //[self gameOver];
+    collisions += 1;
+    if(collisions >= 3){
+      [self gameOver];
+    }
     return YES;
 }
 
