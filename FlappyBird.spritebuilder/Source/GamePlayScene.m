@@ -22,7 +22,7 @@
     if(timeSinceObstacle >= 2.0f){
         [self addObstacle];
         
-        timeSinceObstacle = 0.0f
+        timeSinceObstacle = 0.0f;
     }
 }
 
