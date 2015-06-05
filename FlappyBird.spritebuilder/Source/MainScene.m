@@ -29,12 +29,12 @@
 
 
 - (void)didLoadFromCCB {
-    self.userInteractionEnabled = TRUE;
+    self.userInteractionEnabled = YES;
     
     _grounds = @[_ground1, _ground2];
     
     for (CCNode *ground in _grounds) {
-        // set collision txpe
+        // set collision type
         ground.physicsBody.collisionType = @"level";
         ground.zOrder = DrawingOrderGround;
     }
@@ -178,8 +178,8 @@
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair*)pair character:(CCSprite*)character level:(CCNode*)level {
-    [self gameOver];
-    return TRUE;
+    //[self gameOver];
+    return YES;
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair character:(CCNode *)character goal:(CCNode *)goal {
